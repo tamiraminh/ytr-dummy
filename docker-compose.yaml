@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  nextjs:
+    build:
+      context: ./client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - strapi
+
+  strapi:
+    build:
+      context: ./server
+    ports:
+      - "1337:1337"
+    environment:
+      DATABASE_CLIENT: sqlite
+      DATABASE_NAME: .tmp/data.db
+      HOST: 0.0.0.0
+      PORT: 1337
+      APP_KEYS: "kFVUGW9sdQyvR7DDlooogA==,v2NbQkLCuANUKGMjGrWlxQ==,pEPipVn3riH/tW4TjnpvHA==,og8axW7HonFCHkGGlidprg=="
+      API_TOKEN_SALT: "C+JV7hv1cK7gnTuTmb/IvA=="
+      ADMIN_JWT_SECRET: "GgR7yDxawzglBgUKoqzD5g=="
+      TRANSFER_TOKEN_SALT: "6gBwccKxNNOcH2Cd+7h96A=="
+      JWT_SECRET: "YVGjpFhnJsWG7mHUnQmNZQ=="

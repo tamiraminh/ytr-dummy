@@ -14,4 +14,4 @@ COPY tailwind.config.js ./tailwind.config.js
 
 RUN npm run build
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "start"]
